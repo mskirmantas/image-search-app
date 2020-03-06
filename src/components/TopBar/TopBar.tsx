@@ -1,21 +1,16 @@
 import React from "react";
-import axios from "axios";
+
 import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
 
-export const TopBar: React.FC = () => {
-  const [search, setSearch] = React.useState("");
+interface TopBarProps {
+  input: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClearSearch: () => void;
+  onSubmit: () => void;
+}
 
-  const updateSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value.substring(0, 50));
-  };
-
-  const clearSearch = () => {
-    setSearch("");
-  };
-
-  const handleSubmit = () => {};
-
+export const TopBar: React.FC<TopBarProps> = props => {
   return (
     <div className="TopBar">
       <div className="logo">
@@ -27,13 +22,13 @@ export const TopBar: React.FC = () => {
           <input
             type="text"
             placeholder="Search free high-resolution images"
-            value={search}
-            onChange={updateSearch}
+            value={props.input}
+            onChange={props.onChange}
           />
-          {search ? (
+          {props.input ? (
             <Icon
               className="search-field-icon clear-icon"
-              onClick={clearSearch}
+              onClick={props.onClearSearch}
             >
               close
             </Icon>
@@ -44,7 +39,7 @@ export const TopBar: React.FC = () => {
           variant="contained"
           color="primary"
           type="submit"
-          onClick={handleSubmit}
+          onClick={props.onSubmit}
         >
           Search
         </Button>
