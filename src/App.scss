@@ -59,9 +59,13 @@ h6 {
     font-weight: 700;
   }
 }
-.search-field {
+.search-bar {
+  display: flex;
   margin: 0 auto;
-  width: 40vw;
+  padding-right: 175px;
+}
+.search-field {
+  width: 35vw;
   background-color: $color-white;
   border: 1px solid $color-light-grey;
   border-radius: 15px;
@@ -69,7 +73,7 @@ h6 {
 
   input {
     color: $color-black;
-    width: calc(40vw - 60px);
+    width: calc(35vw - 60px);
     -webkit-appearance: none !important;
     box-shadow: none;
     border: none;
@@ -77,7 +81,7 @@ h6 {
     padding: 10px;
     background-color: inherit;
   }
-  .search-bar-icon {
+  .search-field-icon {
     color: $color-grey;
     margin: 10px;
   }
