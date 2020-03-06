@@ -4,6 +4,9 @@ import Icon from "@material-ui/core/Icon";
 export const TopBar: React.FC = () => {
   return (
     <div className="TopBar">
+      <div className="logo">
+        <h1>Unsearch</h1>
+      </div>
       <div className="search-field">
         <Icon className="search-bar-icon">search</Icon>
         <input type="text" placeholder="Search free high-resolution images" />
