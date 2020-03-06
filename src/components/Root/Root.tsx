@@ -1,11 +1,13 @@
 import React from "react";
 import axios from "axios";
 import { TopBar } from "../TopBar";
+import { ImageList } from "../ImageList";
 
 export const Root: React.FC = () => {
   const [search, setSearch] = React.useState("");
-  const [result, setResult] = React.useState<any>([]);
+  const [result, setResult] = React.useState([]);
   const clientID = "Hznr5ZnTpDgQwBouywuGGbYcIWgCJMyvYJT8V1goXwQ";
+  console.log(result);
 
   const handleUpdateSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value.substring(0, 50));
@@ -39,6 +41,7 @@ export const Root: React.FC = () => {
         onClearSearch={handleClearSearch}
         onSubmit={handleSubmit}
       />
+      <ImageList images={result} />
     </div>
   );
 };

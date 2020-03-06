@@ -1,5 +1,21 @@
 import React from "react";
 
-export const ImageList: React.FC = () => {
-  return <div className="ImageList"></div>;
+interface ImageListProps {
+  images: any;
+}
+
+export const ImageList: React.FC<ImageListProps> = props => {
+  return (
+    <div className="ImageList">
+      {props.images.map((image: any) => {
+        return (
+          <img
+            key={image.id}
+            src={image.urls.small}
+            alt={image.alt_description}
+          />
+        );
+      })}
+    </div>
+  );
 };
