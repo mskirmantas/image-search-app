@@ -3,23 +3,42 @@ import { IData } from "./../Root";
 
 interface ImageListItemProps {
   image: IData;
+  isActive: boolean;
+  onClick: () => void;
 }
 
 export const ImageListItem: React.FC<ImageListItemProps> = props => {
   return (
-    <div className="ImageListItem">
-      <img
-        className="image-small"
-        src={props.image.url_regular}
-        alt={props.image.description}
-      />
-      <div className="author">
+    <>
+      {props.isActive ? (
+        <div className="ActiveImage">
+          <img
+            onClick={props.onClick}
+            className="image-large"
+            src={props.image.url_full}
+            alt={props.image.description}
+          />
+          <div className="author">
+            <h2>
+              "{props.image.description}" by {props.image.author}
+            </h2>
+          </div>
+        </div>
+      ) : null}
+      <div className="ImageListItem" onClick={props.onClick}>
         <img
-          src={props.image.author_image}
-          alt={props.image.author + "'s profile image"}
+          className="image-small"
+          src={props.image.url_regular}
+          alt={props.image.description}
         />
-        <h2>{props.image.author}</h2>
+        <div className="author">
+          <img
+            src={props.image.author_image}
+            alt={props.image.author + "'s profile image"}
+          />
+          <h2>{props.image.author}</h2>
+        </div>
       </div>
-    </div>
+    </>
   );
 };

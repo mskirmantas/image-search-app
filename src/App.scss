@@ -45,14 +45,19 @@ h6 {
   margin-top: 0;
   width: 100vw;
   padding: 35px 0px;
-  display: flex;
+
   background-color: $color-dirty-white;
-  box-shadow: 0px 5px 15px rgba(109, 109, 109, 0.164);
+  box-shadow: 0px 5px 15px rgba(109, 109, 109, 0.25);
+  .container {
+    display: flex;
+  }
 }
 .logo {
+  cursor: pointer;
   padding: 0px 20px;
   h1 {
-    font-weight: 700;
+    font-weight: 900;
+    color: $color-black;
   }
 }
 .search-bar {
@@ -61,7 +66,7 @@ h6 {
   padding-right: 175px;
 }
 .search-field {
-  width: 35vw;
+  width: 30vw;
   background-color: $color-white;
   border: 1px solid $color-light-grey;
   border-radius: 15px;
@@ -69,7 +74,7 @@ h6 {
 
   input {
     color: $color-black;
-    width: calc(35vw - 60px);
+    width: calc(30vw - 60px);
     -webkit-appearance: none !important;
     box-shadow: none;
     border: none;
@@ -82,7 +87,7 @@ h6 {
     margin: 10px;
   }
   .clear-icon {
-    color: $color-light-grey-2;
+    color: $color-light-grey;
     cursor: pointer;
     &:hover {
       color: $color-grey;
@@ -98,7 +103,7 @@ h6 {
   margin-top: 112px;
   height: calc(100vh - 112px);
   padding: 30px;
-  // background-image: url("https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+  background-image: url("https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
   background-size: cover;
   overflow-y: scroll;
   display: flex;
@@ -109,8 +114,8 @@ h6 {
 .ImageListItem {
   position: relative;
   cursor: pointer;
-  width: calc(30vw - 10px);
-  height: calc(30vw - 10px);
+  width: calc(20vw - 10px);
+  height: calc(20vw - 10px);
   margin: 10px;
   display: flex;
   flex-direction: column;
@@ -150,4 +155,33 @@ h6 {
   height: 100%;
   object-fit: cover;
   box-shadow: 0px 5px 15px rgba(59, 59, 59, 0.25);
+}
+.ActiveImage {
+  position: fixed;
+  z-index: 1;
+  width: 100vw;
+  margin-top: 0;
+  top: 112px;
+  padding: 45px;
+  height: calc(100vh - 112px);
+  background-color: rgba(0, 0, 0, 0.75);
+  img {
+    max-height: 100%;
+    max-width: 100%;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(90%);
+      transition: 0.5s;
+    }
+  }
+  .author {
+    display: flex;
+    justify-content: center;
+    h2 {
+      margin-top: 7px;
+      color: $color-light-grey-2;
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
 }

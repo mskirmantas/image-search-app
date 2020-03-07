@@ -13,36 +13,40 @@ interface TopBarProps {
 export const TopBar: React.FC<TopBarProps> = props => {
   return (
     <div className="TopBar">
-      <div className="logo">
-        <h1>Unsearch</h1>
-      </div>
-      <div className="search-bar">
-        <div className="search-field">
-          <Icon className="search-field-icon">search</Icon>
-          <input
-            type="text"
-            placeholder="Search free high-resolution images"
-            value={props.input}
-            onChange={props.onChange}
-          />
-          {props.input ? (
-            <Icon
-              className="search-field-icon clear-icon"
-              onClick={props.onClearSearch}
-            >
-              close
-            </Icon>
-          ) : null}
+      <div className="container">
+        <div className="logo">
+          <a href="/" style={{ textDecoration: "none" }}>
+            <h1>Unsearch</h1>
+          </a>
         </div>
-        <Button
-          style={{ margin: "auto 5px", backgroundColor: "#1db954" }}
-          variant="contained"
-          color="primary"
-          type="submit"
-          onClick={props.onSubmit}
-        >
-          Search
-        </Button>
+        <div className="search-bar">
+          <div className="search-field">
+            <Icon className="search-field-icon">search</Icon>
+            <input
+              type="text"
+              placeholder="Search free high-resolution images"
+              value={props.input}
+              onChange={props.onChange}
+            />
+            {props.input ? (
+              <Icon
+                className="search-field-icon clear-icon"
+                onClick={props.onClearSearch}
+              >
+                close
+              </Icon>
+            ) : null}
+          </div>
+          <Button
+            style={{ margin: "auto 5px", backgroundColor: "#313030" }}
+            variant="contained"
+            color="primary"
+            type="submit"
+            onClick={props.onSubmit}
+          >
+            Search
+          </Button>
+        </div>
       </div>
     </div>
   );
