@@ -38,7 +38,7 @@ export const TopBar: React.FC<TopBarProps> = props => {
             ) : null}
           </div>
           <Button
-            style={{ margin: "auto 5px", backgroundColor: "#313030" }}
+            style={{ margin: "auto 5px", backgroundColor: "#1a1a1a" }}
             variant="contained"
             color="primary"
             type="submit"

@@ -11,9 +11,8 @@ export const ImageListItem: React.FC<ImageListItemProps> = props => {
   return (
     <>
       {props.isActive ? (
-        <div className="ActiveImage">
+        <div className="ActiveImage" onClick={props.onClick}>
           <img
-            onClick={props.onClick}
             className="image-large"
             src={props.image.url_full}
             alt={props.image.description}

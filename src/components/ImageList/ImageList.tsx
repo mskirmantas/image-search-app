@@ -4,6 +4,7 @@ import { IData } from "./../Root";
 
 interface ImageListProps {
   images: IData[];
+  message: string;
 }
 
 export const ImageList: React.FC<ImageListProps> = props => {
@@ -24,6 +25,7 @@ export const ImageList: React.FC<ImageListProps> = props => {
         backgroundImage: props.images.length !== 0 ? "none" : ""
       }}
     >
+      <h1 style={{ width: "100%", color: "white" }}>{props.message}</h1>
       {props.images.map((image: IData) => {
         return (
           <ImageListItem
