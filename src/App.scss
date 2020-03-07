@@ -40,15 +40,6 @@ h6 {
   background-size: cover;
 }
 
-.ImageList {
-  margin-top: 112px;
-  height: calc(100vh - 112px);
-  padding: 30px;
-  background-image: url("https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
-  background-size: cover;
-  overflow-y: scroll;
-}
-
 .TopBar {
   position: fixed;
   margin-top: 0;
@@ -56,7 +47,7 @@ h6 {
   padding: 35px 0px;
   display: flex;
   background-color: $color-dirty-white;
-  box-shadow: 0px 10px 15px rgba(109, 109, 109, 0.3);
+  box-shadow: 0px 5px 15px rgba(109, 109, 109, 0.164);
 }
 .logo {
   padding: 0px 20px;
@@ -101,4 +92,62 @@ h6 {
       transform: scale(0.95);
     }
   }
+}
+
+.ImageList {
+  margin-top: 112px;
+  height: calc(100vh - 112px);
+  padding: 30px;
+  // background-image: url("https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+  background-size: cover;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ImageListItem {
+  position: relative;
+  cursor: pointer;
+  width: calc(30vw - 10px);
+  height: calc(30vw - 10px);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  .author {
+    display: none;
+  }
+  &:hover {
+    transition: 0.2s;
+    .author {
+      display: flex;
+      align-self: flex-start;
+      position: relative;
+      padding: 15px;
+      img {
+        border-radius: 30px;
+        margin-right: 10px;
+      }
+      h2 {
+        margin: auto;
+        color: $color-white;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+    }
+    .image-small {
+      filter: brightness(80%);
+    }
+  }
+}
+
+.image-small {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: 0px 5px 15px rgba(59, 59, 59, 0.25);
 }

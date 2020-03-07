@@ -6,9 +6,10 @@ import { ImageList } from "../ImageList";
 export interface IData {
   id: string;
   description: string;
-  url_small: string;
+  url_regular: string;
   url_full: string;
   author: string;
+  author_image: string;
 }
 
 export const Root: React.FC = () => {
@@ -38,9 +39,10 @@ export const Root: React.FC = () => {
           return {
             id: item.id,
             description: item.alt_description,
-            url_small: item.urls.small,
+            url_regular: item.urls.regular,
             url_full: item.urls.full,
-            author: item.user.name
+            author: item.user.name,
+            author_image: item.user.profile_image.small
           };
         });
         setSearchResult(data);
