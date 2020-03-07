@@ -3,11 +3,18 @@ import axios from "axios";
 import { TopBar } from "../TopBar";
 import { ImageList } from "../ImageList";
 
+export interface IData {
+  id: string;
+  description: string;
+  url_small: string;
+  url_full: string;
+  author: string;
+}
+
 export const Root: React.FC = () => {
   const [search, setSearch] = React.useState("");
-  const [result, setResult] = React.useState([]);
+  const [searchResult, setSearchResult] = React.useState<IData[]>([]);
   const clientID = "Hznr5ZnTpDgQwBouywuGGbYcIWgCJMyvYJT8V1goXwQ";
-  console.log(result);
 
   const handleUpdateSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value.substring(0, 50));
@@ -26,7 +33,17 @@ export const Root: React.FC = () => {
         clientID;
 
       axios.get(url).then(response => {
-        setResult(response.data.results);
+        let fetchedData = response.data.results;
+        let data = fetchedData.map((item: any) => {
+          return {
+            id: item.id,
+            description: item.alt_description,
+            url_small: item.urls.small,
+            url_full: item.urls.full,
+            author: item.user.name
+          };
+        });
+        setSearchResult(data);
       });
     } else {
       return null;
@@ -41,7 +58,7 @@ export const Root: React.FC = () => {
         onClearSearch={handleClearSearch}
         onSubmit={handleSubmit}
       />
-      <ImageList images={result} />
+      <ImageList images={searchResult} />
     </div>
   );
 };
