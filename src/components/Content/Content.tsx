@@ -26,10 +26,18 @@ export const Content: React.FC<ContentProps> = props => {
         />
       ) : null}
 
-      <div className="error-message">
+      {!props.error && props.images.length === 0 ? (
+        <div className="landing-message">
+          <h1>Unsearch</h1>
+          <h3>An image search app powered by Unsplash API</h3>
+        </div>
+      ) : null}
+      <div
+        className="error-message"
+        style={{ display: props.error ? "" : "none" }}
+      >
         <h3>{props.error}</h3>
       </div>
-
       <ImageList images={props.images} />
     </div>
   );

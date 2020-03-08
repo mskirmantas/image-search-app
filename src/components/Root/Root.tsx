@@ -61,7 +61,7 @@ export const Root: React.FC = () => {
           setLoading(false);
         } else {
           setSearchResult([]);
-          setErrorMessage("Sorry! That does not look right...");
+          setErrorMessage("Oops! That does not look right...");
           setLoading(false);
         }
       });
@@ -98,6 +98,7 @@ export const Root: React.FC = () => {
       setSearchResult(data);
       setErrorMessage("");
       setLoading(false);
+      setShowHistory(!showHistory);
     });
   };
 
