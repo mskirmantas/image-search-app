@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
+import { clientID } from "../../client";
 import { TopBar } from "../TopBar";
-import { ImageList } from "../ImageList";
+import { Content } from "../Content";
 
 export interface IData {
   id: string;
@@ -18,8 +19,7 @@ export const Root: React.FC = () => {
   const [searchResult, setSearchResult] = React.useState<IData[]>([]);
   const [errorMessage, setErrorMessage] = React.useState<string>("");
   const [loading, setLoading] = React.useState<boolean>(false);
-
-  const clientID: string = "Hznr5ZnTpDgQwBouywuGGbYcIWgCJMyvYJT8V1goXwQ";
+  const [showHistory, setShowHistory] = React.useState<boolean>(false);
 
   const handleUpdateSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value.substring(0, 50));
@@ -64,6 +64,10 @@ export const Root: React.FC = () => {
     }
   };
 
+  const toggleHistory = () => {
+    setShowHistory(!showHistory);
+  };
+
   return (
     <div className="Root">
       <TopBar
@@ -71,9 +75,15 @@ export const Root: React.FC = () => {
         onChange={handleUpdateSearch}
         onClearSearch={handleClearSearch}
         onSubmit={handleSubmit}
+        onHistory={toggleHistory}
+        showHistory={showHistory}
         isLoading={loading === true}
       />
-      <ImageList images={searchResult} error={errorMessage} />
+      <Content
+        images={searchResult}
+        error={errorMessage}
+        showHistory={showHistory}
+      />
     </div>
   );
 };
