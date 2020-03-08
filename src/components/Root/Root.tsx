@@ -22,6 +22,23 @@ export const Root: React.FC = () => {
   const [showHistory, setShowHistory] = React.useState<boolean>(false);
   const [currentQuery, setCurrentQuery] = React.useState<string>("");
 
+  React.useEffect(() => {
+    if (localStorage.getItem("history")) {
+      getLocalStorage();
+    }
+  }, []);
+
+  const getLocalStorage = () => {
+    const localHistory = localStorage.getItem("history");
+    if (localHistory) {
+      setSearchHistory(JSON.parse(localHistory));
+    }
+  };
+
+  React.useEffect(() => {
+    localStorage.setItem("history", JSON.stringify(searchHistory));
+  }, [searchHistory]);
+
   const handleUpdateSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value.substring(0, 50));
   };
