@@ -1,4 +1,5 @@
 import React from "react";
+
 import { IData } from "./../Root";
 
 interface ImageListItemProps {
@@ -17,6 +18,7 @@ export const ImageListItem: React.FC<ImageListItemProps> = props => {
             src={props.image.url_full}
             alt={props.image.description}
           />
+
           <div className="author">
             <h2>
               "{props.image.description}" by {props.image.author}
@@ -24,6 +26,7 @@ export const ImageListItem: React.FC<ImageListItemProps> = props => {
           </div>
         </div>
       ) : null}
+
       <div className="ImageListItem" onClick={props.onClick}>
         <img
           className="image-small"
