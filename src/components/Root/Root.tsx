@@ -14,10 +14,10 @@ export interface IData {
 
 export const Root: React.FC = () => {
   const [search, setSearch] = React.useState<string>("");
-
+  const [searchHistory, setSearchHistory] = React.useState<string[]>([]);
   const [searchResult, setSearchResult] = React.useState<IData[]>([]);
-  const [message, setMessage] = React.useState<string>("");
-  const clientID = "Hznr5ZnTpDgQwBouywuGGbYcIWgCJMyvYJT8V1goXwQ";
+  const [errorMessage, setErrorMessage] = React.useState<string>("");
+  const clientID: string = "Hznr5ZnTpDgQwBouywuGGbYcIWgCJMyvYJT8V1goXwQ";
 
   const handleUpdateSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value.substring(0, 50));
@@ -49,9 +49,11 @@ export const Root: React.FC = () => {
             };
           });
           setSearchResult(data);
+          setSearchHistory([...searchHistory, search]);
+          setErrorMessage("");
         } else {
           setSearchResult([]);
-          setMessage("Sorry! That does not look right...");
+          setErrorMessage("Sorry! That does not look right...");
         }
       });
     }
@@ -65,7 +67,7 @@ export const Root: React.FC = () => {
         onClearSearch={handleClearSearch}
         onSubmit={handleSubmit}
       />
-      <ImageList images={searchResult} message={message} />
+      <ImageList images={searchResult} error={errorMessage} />
     </div>
   );
 };
