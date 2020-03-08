@@ -15,6 +15,11 @@ interface TopBarProps {
 }
 
 export const TopBar: React.FC<TopBarProps> = props => {
+  const onEnterKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      props.onSubmit();
+    }
+  };
   return (
     <div className="TopBar">
       <div className="container">
@@ -31,6 +36,7 @@ export const TopBar: React.FC<TopBarProps> = props => {
               placeholder="Search free high-resolution images"
               value={props.input}
               onChange={props.onChange}
+              onKeyPress={onEnterKeyPress}
             />
             {props.input ? (
               <Icon
