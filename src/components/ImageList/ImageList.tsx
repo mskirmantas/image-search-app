@@ -21,7 +21,10 @@ export const ImageList: React.FC<ImageListProps> = props => {
   return (
     <div className="ImageList">
       <div className="container">
-        <h2>{props.queryValue}</h2>
+        <div className="search-name">
+          <h2>{props.queryValue}</h2>
+        </div>
+
         {props.images.map((image: IData) => {
           return (
             <ImageListItem

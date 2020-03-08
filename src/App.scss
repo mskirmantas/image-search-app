@@ -47,7 +47,7 @@ h6 {
   z-index: 1;
   margin-top: 0;
   width: 100vw;
-  padding: 35px 0px;
+  padding: 35px 10px;
 
   background-color: $color-dirty-white;
   box-shadow: 0px 5px 15px rgba(109, 109, 109, 0.25);
@@ -129,12 +129,14 @@ h6 {
   z-index: 1;
   top: 116px;
   width: 100%;
-  padding: 20px;
+  padding: 30px;
+  // margin: 0 7vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   color: white;
-  background-color: rgba(190, 190, 190, 0.75);
+  background-color: rgba(165, 165, 165, 0.85);
+  border-bottom: 2px solid $color-dirty-white;
 }
 
 // HISTORY ITEM ----------------------------------------------------------
@@ -154,8 +156,8 @@ h6 {
   height: calc(100vh - 117px);
 
   background-image: linear-gradient(
-      rgba(26, 26, 26, 0.897),
-      rgba(82, 82, 82, 0.198)
+      rgba(26, 26, 26, 0.9),
+      rgba(82, 82, 82, 0.2)
     ),
     url("https://images.unsplash.com/photo-1542254503-6a4c83b465c3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80");
   background-size: cover;
@@ -189,10 +191,23 @@ h6 {
 
 .ImageList {
   overflow-y: scroll;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 30px 0px;
+  margin: 30px auto;
+
+  .search-name {
+    width: 100%;
+    h2 {
+      text-align: center;
+      padding: 10px 10px 30px;
+      font-weight: 900;
+      font-size: 3rem;
+    }
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  //
 }
 
 //  IMAGE LIST ITEM -----------------------------------------------------

@@ -27,9 +27,12 @@ export const Content: React.FC<ContentProps> = props => {
         />
       ) : null}
 
-      {!props.error && props.images.length === 0 ? (
+      {props.images.length === 0 ? (
         <>
-          <div className="landing-message">
+          <div
+            className="landing-message"
+            style={{ display: !props.error ? "" : "none" }}
+          >
             <h1>Unsearch</h1>
             <h3>An image search app powered by Unsplash API</h3>
           </div>
