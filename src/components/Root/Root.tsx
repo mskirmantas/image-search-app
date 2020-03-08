@@ -117,9 +117,16 @@ export const Root: React.FC = () => {
       setSearchResult(data);
       setErrorMessage("");
       setLoading(false);
-      setShowHistory(!showHistory);
+      setShowHistory(false);
       setCurrentQuery(query.toLocaleUpperCase());
     });
+  };
+
+  const handleRemoveFromHistory = (query: string) => {
+    setSearchHistory(searchHistory.filter(previous => previous !== query));
+    if (searchHistory.length === 1) {
+      setShowHistory(false);
+    }
   };
 
   return (
@@ -139,6 +146,7 @@ export const Root: React.FC = () => {
         showHistory={showHistory}
         searchHistory={searchHistory}
         onHistoryItemClick={handleSearchAgain}
+        onRemoveHistoryItem={handleRemoveFromHistory}
         queryValue={currentQuery}
       />
     </div>

@@ -135,17 +135,44 @@ h6 {
   justify-content: center;
   color: white;
   background-color: rgba(165, 165, 165, 0.85);
-  border-bottom: 1px solid $color-dirty-white;
+  border-bottom: 1.5px solid $color-dirty-white;
 }
 
 // HISTORY ITEM ----------------------------------------------------------
 .HistoryItem {
-  border: 1px solid $color-light-grey;
+  display: flex;
+  border: 1.5px solid $color-light-grey;
   background-color: rgb(42, 42, 42);
   border-radius: 5px;
-  padding: 10px 20px;
+
   margin: 5px;
   cursor: pointer;
+  &:hover {
+    opacity: 0.9;
+    transition: 0.2s;
+  }
+}
+.search-again-button {
+  padding: 10px 23px;
+  padding-right: 6px;
+  border-radius: 5px;
+}
+.remove-button {
+  margin: 3px;
+  margin-bottom: auto;
+  color: $color-black;
+  background-color: $color-grey;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  :last-child {
+    font-size: 15px;
+  }
+  &:hover {
+    background-color: $color-light-grey;
+    transition: 0.2s;
+  }
 }
 
 // CONTENT PAGE --------------------------------------------------

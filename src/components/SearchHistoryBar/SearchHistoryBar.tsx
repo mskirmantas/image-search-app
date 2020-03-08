@@ -4,6 +4,7 @@ import { HistoryItem } from "../HistoryItem";
 interface SearchHistoryBarProps {
   searchHistory: string[];
   onHistoryItemClick: (query: string) => void;
+  onRemoveHistoryItem: (query: string) => void;
 }
 
 export const SearchHistoryBar: React.FC<SearchHistoryBarProps> = props => {
@@ -14,7 +15,8 @@ export const SearchHistoryBar: React.FC<SearchHistoryBarProps> = props => {
           <HistoryItem
             key={historyItem}
             historyItem={historyItem}
-            onClick={() => props.onHistoryItemClick(historyItem)}
+            onItemClick={() => props.onHistoryItemClick(historyItem)}
+            onRemoveClick={() => props.onRemoveHistoryItem(historyItem)}
           />
         );
       })}
