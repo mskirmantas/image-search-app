@@ -17,6 +17,8 @@ export const Root: React.FC = () => {
   const [searchHistory, setSearchHistory] = React.useState<string[]>([]);
   const [searchResult, setSearchResult] = React.useState<IData[]>([]);
   const [errorMessage, setErrorMessage] = React.useState<string>("");
+  const [loading, setLoading] = React.useState<boolean>(false);
+
   const clientID: string = "Hznr5ZnTpDgQwBouywuGGbYcIWgCJMyvYJT8V1goXwQ";
 
   const handleUpdateSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,6 +31,7 @@ export const Root: React.FC = () => {
 
   const handleSubmit = () => {
     if (search !== "") {
+      setLoading(true);
       const url =
         "https://api.unsplash.com/search/photos?per_page=30&query=" +
         search +
@@ -51,9 +54,11 @@ export const Root: React.FC = () => {
           setSearchResult(data);
           setSearchHistory([...searchHistory, search]);
           setErrorMessage("");
+          setLoading(false);
         } else {
           setSearchResult([]);
           setErrorMessage("Sorry! That does not look right...");
+          setLoading(false);
         }
       });
     }
@@ -66,6 +71,7 @@ export const Root: React.FC = () => {
         onChange={handleUpdateSearch}
         onClearSearch={handleClearSearch}
         onSubmit={handleSubmit}
+        isLoading={loading === true}
       />
       <ImageList images={searchResult} error={errorMessage} />
     </div>

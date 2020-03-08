@@ -2,9 +2,11 @@ import React from "react";
 
 import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 interface TopBarProps {
   input: string;
+  isLoading: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClearSearch: () => void;
   onSubmit: () => void;
@@ -37,15 +39,24 @@ export const TopBar: React.FC<TopBarProps> = props => {
               </Icon>
             ) : null}
           </div>
-          <Button
-            style={{ margin: "auto 5px", backgroundColor: "#1a1a1a" }}
-            variant="contained"
-            color="primary"
-            type="submit"
-            onClick={props.onSubmit}
-          >
-            Search
-          </Button>
+          <div className="search-button">
+            {props.isLoading ? (
+              <CircularProgress
+                className="loading-icon"
+                style={{ color: "#1a1a1a", padding: "3px" }}
+              />
+            ) : (
+              <Button
+                style={{ backgroundColor: "#1a1a1a" }}
+                variant="contained"
+                color="primary"
+                type="submit"
+                onClick={props.onSubmit}
+              >
+                Search
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </div>
