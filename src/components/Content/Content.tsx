@@ -36,7 +36,7 @@ export const Content: React.FC<ContentProps> = props => {
         className="error-message"
         style={{ display: props.error ? "" : "none" }}
       >
-        <h3>{props.error}</h3>
+        <h2>{props.error}</h2>
       </div>
       <ImageList images={props.images} />
     </div>
