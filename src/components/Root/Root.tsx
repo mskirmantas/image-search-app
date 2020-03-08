@@ -13,9 +13,10 @@ export interface IData {
 }
 
 export const Root: React.FC = () => {
-  const [search, setSearch] = React.useState("");
+  const [search, setSearch] = React.useState<string>("");
+
   const [searchResult, setSearchResult] = React.useState<IData[]>([]);
-  const [message, setMeassage] = React.useState<string>("");
+  const [message, setMessage] = React.useState<string>("");
   const clientID = "Hznr5ZnTpDgQwBouywuGGbYcIWgCJMyvYJT8V1goXwQ";
 
   const handleUpdateSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +30,7 @@ export const Root: React.FC = () => {
   const handleSubmit = () => {
     if (search !== "") {
       const url =
-        "https://api.unsplash.com/search/photos?query=" +
+        "https://api.unsplash.com/search/photos?per_page=30&query=" +
         search +
         "&client_id=" +
         clientID;
@@ -50,7 +51,7 @@ export const Root: React.FC = () => {
           setSearchResult(data);
         } else {
           setSearchResult([]);
-          setMeassage("Sorry! That does not look right...");
+          setMessage("Sorry! That does not look right...");
         }
       });
     }
