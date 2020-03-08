@@ -20,6 +20,7 @@ export const Root: React.FC = () => {
   const [errorMessage, setErrorMessage] = React.useState<string>("");
   const [loading, setLoading] = React.useState<boolean>(false);
   const [showHistory, setShowHistory] = React.useState<boolean>(false);
+  const [currentQuery, setCurrentQuery] = React.useState<string>("");
 
   const handleUpdateSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value.substring(0, 50));
@@ -59,6 +60,7 @@ export const Root: React.FC = () => {
 
           setErrorMessage("");
           setLoading(false);
+          setCurrentQuery(search.toLocaleUpperCase());
         } else {
           setSearchResult([]);
           setErrorMessage("Oops! That does not look right...");
@@ -99,6 +101,7 @@ export const Root: React.FC = () => {
       setErrorMessage("");
       setLoading(false);
       setShowHistory(!showHistory);
+      setCurrentQuery(query.toLocaleUpperCase());
     });
   };
 
@@ -119,6 +122,7 @@ export const Root: React.FC = () => {
         showHistory={showHistory}
         searchHistory={searchHistory}
         onHistoryItemClick={handleSearchAgain}
+        queryValue={currentQuery}
       />
     </div>
   );

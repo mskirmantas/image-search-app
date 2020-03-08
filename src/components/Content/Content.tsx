@@ -7,6 +7,7 @@ interface ContentProps {
   images: IData[];
   searchHistory: string[];
   error: string;
+  queryValue: string;
   showHistory: boolean;
   onHistoryItemClick: (query: string) => void;
 }
@@ -27,18 +28,21 @@ export const Content: React.FC<ContentProps> = props => {
       ) : null}
 
       {!props.error && props.images.length === 0 ? (
-        <div className="landing-message">
-          <h1>Unsearch</h1>
-          <h3>An image search app powered by Unsplash API</h3>
-        </div>
-      ) : null}
+        <>
+          <div className="landing-message">
+            <h1>Unsearch</h1>
+            <h3>An image search app powered by Unsplash API</h3>
+          </div>
+        </>
+      ) : (
+        <ImageList images={props.images} queryValue={props.queryValue} />
+      )}
       <div
         className="error-message"
         style={{ display: props.error ? "" : "none" }}
       >
         <h2>{props.error}</h2>
       </div>
-      <ImageList images={props.images} />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { IData } from "./../Root";
 
 interface ImageListProps {
   images: IData[];
+  queryValue: string;
 }
 
 export const ImageList: React.FC<ImageListProps> = props => {
@@ -19,16 +20,19 @@ export const ImageList: React.FC<ImageListProps> = props => {
 
   return (
     <div className="ImageList">
-      {props.images.map((image: IData) => {
-        return (
-          <ImageListItem
-            key={image.id}
-            image={image}
-            isActive={image.id === activeImageID}
-            onClick={() => toggleActiveImage(image.id)}
-          />
-        );
-      })}
+      <div className="container">
+        <h2>{props.queryValue}</h2>
+        {props.images.map((image: IData) => {
+          return (
+            <ImageListItem
+              key={image.id}
+              image={image}
+              isActive={image.id === activeImageID}
+              onClick={() => toggleActiveImage(image.id)}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

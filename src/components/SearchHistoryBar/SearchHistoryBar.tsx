@@ -12,9 +12,8 @@ export const SearchHistoryBar: React.FC<SearchHistoryBarProps> = props => {
       {props.searchHistory.map((historyItem: string) => {
         return (
           <HistoryItem
-            // key={image.id}
+            key={historyItem}
             historyItem={historyItem}
-            // isActive={image.id === activeImageID}
             onClick={() => props.onHistoryItemClick(historyItem)}
           />
         );
