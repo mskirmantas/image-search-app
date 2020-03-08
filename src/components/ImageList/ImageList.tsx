@@ -4,7 +4,6 @@ import { IData } from "./../Root";
 
 interface ImageListProps {
   images: IData[];
-  error: string;
 }
 
 export const ImageList: React.FC<ImageListProps> = props => {
@@ -19,16 +18,7 @@ export const ImageList: React.FC<ImageListProps> = props => {
   };
 
   return (
-    <div
-      className="ImageList"
-      style={{
-        backgroundImage: props.images.length !== 0 ? "none" : ""
-      }}
-    >
-      <div className="error-message">
-        <h3>{props.error}</h3>
-      </div>
-
+    <div className="ImageList">
       {props.images.map((image: IData) => {
         return (
           <ImageListItem

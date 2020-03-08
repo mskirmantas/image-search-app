@@ -7,9 +7,11 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 interface TopBarProps {
   input: string;
   isLoading: boolean;
+  showHistory: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClearSearch: () => void;
   onSubmit: () => void;
+  onHistory: () => void;
 }
 
 export const TopBar: React.FC<TopBarProps> = props => {
@@ -41,10 +43,7 @@ export const TopBar: React.FC<TopBarProps> = props => {
           </div>
           <div className="search-button">
             {props.isLoading ? (
-              <CircularProgress
-                className="loading-icon"
-                style={{ color: "#1a1a1a", padding: "3px" }}
-              />
+              <CircularProgress style={{ color: "#1a1a1a", padding: "3px" }} />
             ) : (
               <Button
                 style={{ backgroundColor: "#1a1a1a" }}
@@ -57,6 +56,17 @@ export const TopBar: React.FC<TopBarProps> = props => {
               </Button>
             )}
           </div>
+        </div>
+        <div className="search-history-tab">
+          <Icon
+            onClick={props.onHistory}
+            style={{
+              fontSize: "35px",
+              color: props.showHistory ? "#1a1a1a" : ""
+            }}
+          >
+            history
+          </Icon>
         </div>
       </div>
     </div>
