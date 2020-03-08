@@ -52,7 +52,11 @@ export const Root: React.FC = () => {
             };
           });
           setSearchResult(data);
-          setSearchHistory([...searchHistory, search]);
+
+          searchHistory.includes(search.toLowerCase())
+            ? setSearchHistory(searchHistory)
+            : setSearchHistory([...searchHistory, search.toLowerCase()]);
+
           setErrorMessage("");
           setLoading(false);
         } else {
@@ -65,7 +69,36 @@ export const Root: React.FC = () => {
   };
 
   const toggleHistory = () => {
-    setShowHistory(!showHistory);
+    if (searchHistory.length > 0) {
+      setShowHistory(!showHistory);
+    }
+  };
+
+  const handleSearchAgain = (query: string) => {
+    setLoading(true);
+    const url =
+      "https://api.unsplash.com/search/photos?per_page=30&query=" +
+      query +
+      "&client_id=" +
+      clientID;
+
+    axios.get(url).then(response => {
+      let fetchedData = response.data.results;
+      let data = fetchedData.map((item: any) => {
+        return {
+          id: item.id,
+          description: item.alt_description,
+          url_regular: item.urls.regular,
+          url_full: item.urls.regular,
+          author: item.user.name,
+          author_image: item.user.profile_image.small
+        };
+      });
+      setSearch("");
+      setSearchResult(data);
+      setErrorMessage("");
+      setLoading(false);
+    });
   };
 
   return (
@@ -83,6 +116,8 @@ export const Root: React.FC = () => {
         images={searchResult}
         error={errorMessage}
         showHistory={showHistory}
+        searchHistory={searchHistory}
+        onHistoryItemClick={handleSearchAgain}
       />
     </div>
   );
