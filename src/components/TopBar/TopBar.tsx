@@ -4,6 +4,8 @@ import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
+import "./TopBar.scss";
+
 interface TopBarProps {
   input: string;
   isLoading: boolean;
@@ -33,7 +35,7 @@ export const TopBar: React.FC<TopBarProps> = props => {
             <Icon className="search-field-icon">search</Icon>
             <input
               type="text"
-              placeholder="Search free high-resolution images"
+              placeholder="Search for images"
               value={props.input}
               onChange={props.onChange}
               onKeyPress={onEnterKeyPress}
@@ -49,7 +51,7 @@ export const TopBar: React.FC<TopBarProps> = props => {
           </div>
           <div className="search-button">
             {props.isLoading ? (
-              <CircularProgress style={{ color: "#1a1a1a", padding: "3px" }} />
+              <CircularProgress id="loading-icon" />
             ) : (
               <Button
                 style={{ backgroundColor: "#1a1a1a" }}
@@ -58,7 +60,8 @@ export const TopBar: React.FC<TopBarProps> = props => {
                 type="submit"
                 onClick={props.onSubmit}
               >
-                Search
+                <Icon id="search-btn-icon">search</Icon>
+                <span id="search-btn-text">Search</span>
               </Button>
             )}
           </div>

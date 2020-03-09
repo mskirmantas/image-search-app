@@ -1,6 +1,7 @@
 import React from "react";
-
 import { IData } from "./../Root";
+import { ImagePreview } from "../ImagePreview";
+import "./ImageListItem.scss";
 
 interface ImageListItemProps {
   image: IData;
@@ -12,19 +13,7 @@ export const ImageListItem: React.FC<ImageListItemProps> = props => {
   return (
     <>
       {props.isActive ? (
-        <div className="ActiveImage" onClick={props.onClick}>
-          <img
-            className="image-large"
-            src={props.image.url_full}
-            alt={props.image.description}
-          />
-
-          <div className="author">
-            <h2>
-              "{props.image.description}" by {props.image.author}
-            </h2>
-          </div>
-        </div>
+        <ImagePreview image={props.image} onClick={props.onClick} />
       ) : null}
 
       <div className="ImageListItem" onClick={props.onClick}>

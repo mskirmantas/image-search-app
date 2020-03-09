@@ -1,0 +1,42 @@
+@import "../../theme.scss";
+
+.HistoryItem {
+  display: flex;
+  border: 1.5px solid $color-light-grey;
+  background-color: #2a2a2a;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.9;
+    transition: 0.2s;
+  }
+}
+.search-again-button {
+  padding: 10px 25px;
+  padding-right: 6px;
+  border-radius: 5px;
+}
+.remove-button {
+  margin: 3px;
+  margin-bottom: auto;
+  color: $color-light-grey-2;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  :last-child {
+    font-size: 15px;
+  }
+  &:hover {
+    color: $color-black;
+    background-color: $color-light-grey;
+    transition: 0.2s;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .HistoryItem {
+    max-height: 43px;
+  }
+}

@@ -1,8 +1,11 @@
 import React from "react";
 import axios from "axios";
+
 import { clientID } from "../../client";
 import { TopBar } from "../TopBar";
 import { Content } from "../Content";
+
+import "./Root.scss";
 
 export interface IData {
   id: string;

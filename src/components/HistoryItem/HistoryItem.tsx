@@ -1,5 +1,6 @@
 import React from "react";
 import Icon from "@material-ui/core/Icon";
+import "./HistoryItem.scss";
 
 interface HistoryItemProps {
   historyItem: string;

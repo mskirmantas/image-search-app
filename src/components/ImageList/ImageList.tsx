@@ -1,6 +1,7 @@
 import React from "react";
 import { ImageListItem } from "./../ImageListItem";
 import { IData } from "./../Root";
+import "./ImageList.scss";
 
 interface ImageListProps {
   images: IData[];
