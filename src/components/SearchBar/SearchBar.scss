@@ -1,0 +1,106 @@
+@import "../../theme.scss";
+
+.SearchBar {
+  display: flex;
+  margin: 0;
+}
+.input-field {
+  width: 30vw;
+  background-color: $color-white;
+  border: 1px solid $color-light-grey;
+  border-radius: 15px;
+  display: flex;
+  input {
+    color: $color-black;
+    width: calc(30vw - 60px);
+    -webkit-appearance: none !important;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    padding: 10px;
+    background-color: inherit;
+  }
+  .input-field-icon {
+    color: $color-grey;
+    margin: 10px;
+  }
+  .clear-icon {
+    color: $color-light-grey;
+    cursor: pointer;
+    &:hover {
+      color: $color-grey;
+      transition: 0.3s;
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+.search-button {
+  width: 88px;
+  margin: auto 5px;
+
+  #search-btn-icon {
+    display: none;
+  }
+}
+#loading-icon {
+  color: #1a1a1a;
+  padding: 3px;
+  margin: auto;
+}
+
+@media screen and (max-width: 900px) {
+  .input-field {
+    width: 45vw;
+    background-color: $color-white;
+    border: 1px solid $color-light-grey;
+    border-radius: 15px;
+    display: flex;
+    input {
+      color: $color-black;
+      width: calc(45vw - 60px);
+      -webkit-appearance: none !important;
+      box-shadow: none;
+      border: none;
+      outline: none;
+      padding: 10px;
+      background-color: inherit;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .SearchBar {
+    width: calc(100% - 35px);
+  }
+  .input-field {
+    width: 100%;
+    background-color: $color-white;
+    border: 1px solid $color-light-grey;
+    border-radius: 15px;
+    display: flex;
+    input {
+      width: calc(100% - 60px);
+      padding: 0px;
+    }
+  }
+  .search-button {
+    width: 34px;
+    margin: auto 10px;
+
+    #search-btn-icon {
+      display: block;
+    }
+    #search-btn-text {
+      display: none;
+    }
+    .MuiButton-root {
+      min-width: 24px;
+      padding: 5px;
+    }
+  }
+  #loading-icon {
+    padding: 7px;
+  }
+}

@@ -1,0 +1,54 @@
+@import "../../theme.scss";
+
+.LandingMessage,
+.ErrorMessage {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h1 {
+    color: $color-white;
+    font-size: 6rem;
+  }
+  h2 {
+    color: $color-dirty-white;
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+    color: $color-dirty-white;
+    font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .ErrorMessage {
+    h2 {
+      font-size: 2rem;
+      font-weight: 400;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .LandingMessage,
+  .ErrorMessage {
+    h1 {
+      color: $color-white;
+      font-size: 4.35rem;
+    }
+    h2 {
+      color: $color-dirty-white;
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+    h3 {
+      font-size: 0.85rem;
+      color: $color-dirty-white;
+      font-weight: 400;
+    }
+  }
+}

@@ -9,7 +9,6 @@
   padding: 45px;
   height: calc(100vh - 112px);
   background-color: rgba(0, 0, 0, 0.75);
-
   img {
     max-height: 100%;
     max-width: 100%;
@@ -22,7 +21,6 @@
   .author {
     display: flex;
     justify-content: center;
-
     h2 {
       margin-top: 7px;
       color: $color-dirty-white;

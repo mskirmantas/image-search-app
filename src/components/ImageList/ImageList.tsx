@@ -1,7 +1,7 @@
 import React from "react";
 
-import { IData } from "./../Root";
-import { ImageListItem } from "./../ImageListItem";
+import { IData } from "../Root";
+import { ImageListItem } from "../ImageListItem";
 
 import "./ImageList.scss";
 

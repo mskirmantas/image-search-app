@@ -1,8 +1,9 @@
 import React from "react";
 
+import { IData } from "../Root";
 import { HistoryContainer } from "../HistoryContainer";
-import { ImageList } from "./../ImageList";
-import { IData } from "./../Root";
+import { ImageList } from "../ImageList";
+import { LandingMessage, ErrorMessage } from "../Messages";
 
 import "./Content.scss";
 
@@ -34,23 +35,12 @@ export const Content: React.FC<ContentProps> = props => {
 
       {props.images.length === 0 ? (
         <>
-          <div
-            className="landing-message"
-            style={{ display: !props.error ? "" : "none" }}
-          >
-            <h1>Unsearch</h1>
-            <h3>An image search app powered by Unsplash API</h3>
-          </div>
+          <LandingMessage error={props.error} />
         </>
       ) : (
         <ImageList images={props.images} queryValue={props.queryValue} />
       )}
-      <div
-        className="error-message"
-        style={{ display: props.error ? "" : "none" }}
-      >
-        <h2>{props.error}</h2>
-      </div>
+      <ErrorMessage error={props.error} />
     </div>
   );
 };

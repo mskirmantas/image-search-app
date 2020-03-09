@@ -1,0 +1,29 @@
+@import "../../theme.scss";
+
+.HistoryButton {
+  width: 176px;
+  padding: 5px 20px 5px;
+  display: flex;
+  justify-content: flex-end;
+  :last-child {
+    cursor: pointer;
+    color: $color-light-grey-2;
+    &:hover {
+      color: $color-grey;
+      transition: 0.2s;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .HistoryButton {
+    width: 75px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .HistoryButton {
+    width: auto;
+    padding: 5px 0px;
+  }
+}
