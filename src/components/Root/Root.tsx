@@ -18,12 +18,12 @@ export interface IData {
 
 export const Root: React.FC = () => {
   const [search, setSearch] = React.useState<string>("");
-  const [searchHistory, setSearchHistory] = React.useState<string[]>([]);
   const [searchResult, setSearchResult] = React.useState<IData[]>([]);
-  const [errorMessage, setErrorMessage] = React.useState<string>("");
-  const [loading, setLoading] = React.useState<boolean>(false);
+  const [searchHistory, setSearchHistory] = React.useState<string[]>([]);
   const [showHistory, setShowHistory] = React.useState<boolean>(false);
   const [currentQuery, setCurrentQuery] = React.useState<string>("");
+  const [errorMessage, setErrorMessage] = React.useState<string>("");
+  const [loading, setLoading] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     if (localStorage.getItem("history")) {
