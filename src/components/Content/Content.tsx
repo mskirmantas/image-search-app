@@ -1,4 +1,5 @@
 import React from "react";
+
 import { HistoryContainer } from "../HistoryContainer";
 import { ImageList } from "./../ImageList";
 import { IData } from "./../Root";
@@ -12,7 +13,7 @@ interface ContentProps {
   queryValue: string;
   showHistory: boolean;
   onHistoryItemClick: (query: string) => void;
-  onRemoveHistoryItem: (query: string) => void;
+  onRemoveItemClick: (query: string) => void;
 }
 
 export const Content: React.FC<ContentProps> = props => {
@@ -27,7 +28,7 @@ export const Content: React.FC<ContentProps> = props => {
         <HistoryContainer
           searchHistory={props.searchHistory}
           onHistoryItemClick={props.onHistoryItemClick}
-          onRemoveHistoryItem={props.onRemoveHistoryItem}
+          onRemoveHistoryItem={props.onRemoveItemClick}
         />
       ) : null}
 

@@ -1,5 +1,7 @@
 import React from "react";
+
 import { IData } from "./../Root";
+
 import "./ImagePreview.scss";
 
 interface ImagePreviewProps {

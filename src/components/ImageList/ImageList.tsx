@@ -1,6 +1,8 @@
 import React from "react";
-import { ImageListItem } from "./../ImageListItem";
+
 import { IData } from "./../Root";
+import { ImageListItem } from "./../ImageListItem";
+
 import "./ImageList.scss";
 
 interface ImageListProps {
@@ -32,7 +34,7 @@ export const ImageList: React.FC<ImageListProps> = props => {
               key={image.id}
               image={image}
               isActive={image.id === activeImageID}
-              onClick={() => toggleActiveImage(image.id)}
+              onImageClick={() => toggleActiveImage(image.id)}
             />
           );
         })}

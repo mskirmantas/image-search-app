@@ -136,10 +136,10 @@ export const Root: React.FC = () => {
     <div className="Root">
       <TopBar
         input={search}
-        onChange={handleUpdateSearch}
-        onClearSearch={handleClearSearch}
-        onSubmit={handleSubmit}
-        onHistory={toggleHistory}
+        onInputChange={handleUpdateSearch}
+        onClearSearchClick={handleClearSearch}
+        onSubmitClick={handleSubmit}
+        onHistoryToggle={toggleHistory}
         showHistory={showHistory}
         isLoading={loading === true}
       />
@@ -149,7 +149,7 @@ export const Root: React.FC = () => {
         showHistory={showHistory}
         searchHistory={searchHistory}
         onHistoryItemClick={handleSearchAgain}
-        onRemoveHistoryItem={handleRemoveFromHistory}
+        onRemoveItemClick={handleRemoveFromHistory}
         queryValue={currentQuery}
       />
     </div>

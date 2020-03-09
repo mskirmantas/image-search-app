@@ -1,5 +1,4 @@
 import React from "react";
-
 import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -10,16 +9,16 @@ interface TopBarProps {
   input: string;
   isLoading: boolean;
   showHistory: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onClearSearch: () => void;
-  onSubmit: () => void;
-  onHistory: () => void;
+  onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClearSearchClick: () => void;
+  onSubmitClick: () => void;
+  onHistoryToggle: () => void;
 }
 
 export const TopBar: React.FC<TopBarProps> = props => {
   const onEnterKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
-      props.onSubmit();
+      props.onSubmitClick();
     }
   };
   return (
@@ -37,13 +36,13 @@ export const TopBar: React.FC<TopBarProps> = props => {
               type="text"
               placeholder="Search for images"
               value={props.input}
-              onChange={props.onChange}
+              onChange={props.onInputChange}
               onKeyPress={onEnterKeyPress}
             />
             {props.input ? (
               <Icon
                 className="search-field-icon clear-icon"
-                onClick={props.onClearSearch}
+                onClick={props.onClearSearchClick}
               >
                 close
               </Icon>
@@ -58,7 +57,7 @@ export const TopBar: React.FC<TopBarProps> = props => {
                 variant="contained"
                 color="primary"
                 type="submit"
-                onClick={props.onSubmit}
+                onClick={props.onSubmitClick}
               >
                 <Icon id="search-btn-icon">search</Icon>
                 <span id="search-btn-text">Search</span>
@@ -68,7 +67,7 @@ export const TopBar: React.FC<TopBarProps> = props => {
         </div>
         <div className="search-history-tab">
           <Icon
-            onClick={props.onHistory}
+            onClick={props.onHistoryToggle}
             style={{
               fontSize: "35px",
               color: props.showHistory ? "#1a1a1a" : ""

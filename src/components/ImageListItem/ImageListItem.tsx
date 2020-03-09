@@ -1,22 +1,24 @@
 import React from "react";
+
 import { IData } from "./../Root";
 import { ImagePreview } from "../ImagePreview";
+
 import "./ImageListItem.scss";
 
 interface ImageListItemProps {
   image: IData;
   isActive: boolean;
-  onClick: () => void;
+  onImageClick: () => void;
 }
 
 export const ImageListItem: React.FC<ImageListItemProps> = props => {
   return (
     <>
       {props.isActive ? (
-        <ImagePreview image={props.image} onClick={props.onClick} />
+        <ImagePreview image={props.image} onClick={props.onImageClick} />
       ) : null}
 
-      <div className="ImageListItem" onClick={props.onClick}>
+      <div className="ImageListItem" onClick={props.onImageClick}>
         <img
           className="image-small"
           src={props.image.url_regular}
