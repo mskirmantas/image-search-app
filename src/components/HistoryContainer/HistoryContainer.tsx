@@ -1,15 +1,18 @@
 import React from "react";
+
 import { HistoryItem } from "../HistoryItem";
 
-interface SearchHistoryBarProps {
+import "./HistoryContainer.scss";
+
+interface HistoryContainerProps {
   searchHistory: string[];
   onHistoryItemClick: (query: string) => void;
   onRemoveHistoryItem: (query: string) => void;
 }
 
-export const SearchHistoryBar: React.FC<SearchHistoryBarProps> = props => {
+export const HistoryContainer: React.FC<HistoryContainerProps> = props => {
   return (
-    <div className="SearchHistoryBar">
+    <div className="HistoryContainer">
       {props.searchHistory.map((historyItem: string) => {
         return (
           <HistoryItem

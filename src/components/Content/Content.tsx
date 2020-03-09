@@ -1,7 +1,9 @@
 import React from "react";
-import { SearchHistoryBar } from "./../SearchHistoryBar";
+import { HistoryContainer } from "../HistoryContainer";
 import { ImageList } from "./../ImageList";
 import { IData } from "./../Root";
+
+import "./Content.scss";
 
 interface ContentProps {
   images: IData[];
@@ -22,7 +24,7 @@ export const Content: React.FC<ContentProps> = props => {
       }}
     >
       {props.showHistory ? (
-        <SearchHistoryBar
+        <HistoryContainer
           searchHistory={props.searchHistory}
           onHistoryItemClick={props.onHistoryItemClick}
           onRemoveHistoryItem={props.onRemoveHistoryItem}

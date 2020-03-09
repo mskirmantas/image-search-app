@@ -1,0 +1,17 @@
+@import "../../theme.scss";
+
+.HistoryContainer {
+  position: fixed;
+  z-index: 1;
+  top: 115px;
+  width: 100%;
+  max-height: calc(100vh - 115px);
+  overflow-y: scroll;
+  padding: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  color: white;
+  background-color: rgba(165, 165, 165, 0.85);
+  border-bottom: 1.5px solid $color-dirty-white;
+}
