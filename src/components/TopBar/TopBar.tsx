@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Logo } from "../Logo";
-import { SearchBar } from "../SearchBar";
-import { HistoryButton } from "../HistoryButton";
+import { Logo } from "../Logo/Logo";
+import { SearchBar } from "../SearchBar/SearchBar";
+import { HistoryButton } from "../HistoryButton/HistoryButton";
 
 import "./TopBar.scss";
 
@@ -16,7 +16,7 @@ interface TopBarProps {
   onHistoryToggle: () => void;
 }
 
-export const TopBar: React.FC<TopBarProps> = props => {
+export const TopBar: React.FC<TopBarProps> = (props) => {
   return (
     <div className="TopBar">
       <div className="container">

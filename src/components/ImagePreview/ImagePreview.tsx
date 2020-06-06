@@ -1,6 +1,6 @@
 import React from "react";
 
-import { IData } from "../Root";
+import { IData } from "../../App";
 
 import "./ImagePreview.scss";
 
@@ -9,7 +9,7 @@ interface ImagePreviewProps {
   onClick: () => void;
 }
 
-export const ImagePreview: React.FC<ImagePreviewProps> = props => {
+export const ImagePreview: React.FC<ImagePreviewProps> = (props) => {
   return (
     <div className="ImagePreview" onClick={props.onClick}>
       <img
@@ -19,7 +19,7 @@ export const ImagePreview: React.FC<ImagePreviewProps> = props => {
       />
       <div className="author">
         <h2>
-          "{props.image.description}" by {props.image.author}
+          {props.image.description} - by {props.image.author}
         </h2>
       </div>
     </div>

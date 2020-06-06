@@ -1,6 +1,6 @@
 import React from "react";
 
-import { HistoryItem } from "../HistoryItem";
+import { HistoryItem } from "../HistoryItem/HistoryItem";
 
 import "./HistoryContainer.scss";
 
@@ -10,7 +10,7 @@ interface HistoryContainerProps {
   onRemoveHistoryItem: (query: string) => void;
 }
 
-export const HistoryContainer: React.FC<HistoryContainerProps> = props => {
+export const HistoryContainer: React.FC<HistoryContainerProps> = (props) => {
   return (
     <div className="HistoryContainer">
       {props.searchHistory.map((historyItem: string) => {

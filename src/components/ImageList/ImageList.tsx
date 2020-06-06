@@ -1,7 +1,7 @@
 import React from "react";
 
-import { IData } from "../Root";
-import { ImageListItem } from "../ImageListItem";
+import { IData } from "../../App";
+import { ImageListItem } from "../ImageListItem/ImageListItem";
 
 import "./ImageList.scss";
 
@@ -10,7 +10,7 @@ interface ImageListProps {
   queryValue: string;
 }
 
-export const ImageList: React.FC<ImageListProps> = props => {
+export const ImageList: React.FC<ImageListProps> = (props) => {
   const [activeImageID, setActiveImageID] = React.useState<string | undefined>(
     undefined
   );

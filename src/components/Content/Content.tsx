@@ -1,9 +1,9 @@
 import React from "react";
 
-import { IData } from "../Root";
-import { HistoryContainer } from "../HistoryContainer";
-import { ImageList } from "../ImageList";
-import { LandingMessage, ErrorMessage } from "../Messages";
+import { IData } from "../../App";
+import { HistoryContainer } from "../HistoryContainer/HistoryContainer";
+import { ImageList } from "../ImageList/ImageList";
+import { LandingMessage, ErrorMessage } from "../Messages/Messages";
 
 import "./Content.scss";
 
@@ -17,12 +17,12 @@ interface ContentProps {
   onRemoveItemClick: (query: string) => void;
 }
 
-export const Content: React.FC<ContentProps> = props => {
+export const Content: React.FC<ContentProps> = (props) => {
   return (
     <div
       className="Content"
       style={{
-        backgroundImage: props.images.length !== 0 ? "none" : ""
+        backgroundImage: props.images.length !== 0 ? "none" : "",
       }}
     >
       {props.showHistory ? (

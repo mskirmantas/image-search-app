@@ -1,7 +1,7 @@
 import React from "react";
 
-import { IData } from "../Root";
-import { ImagePreview } from "../ImagePreview";
+import { IData } from "../../App";
+import { ImagePreview } from "../ImagePreview/ImagePreview";
 
 import "./ImageListItem.scss";
 
@@ -11,7 +11,7 @@ interface ImageListItemProps {
   onImageClick: () => void;
 }
 
-export const ImageListItem: React.FC<ImageListItemProps> = props => {
+export const ImageListItem: React.FC<ImageListItemProps> = (props) => {
   return (
     <>
       {props.isActive ? (
