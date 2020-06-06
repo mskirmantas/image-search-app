@@ -23,4 +23,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # userID
-/src/client
+/src/client/client

@@ -5,7 +5,7 @@ import "./Logo.scss";
 export const Logo: React.FC = () => {
   return (
     <div className="Logo">
-      <a href="/" style={{ textDecoration: "none" }}>
+      <a href="/" >
         <h1>Unsearch</h1>
       </a>
     </div>

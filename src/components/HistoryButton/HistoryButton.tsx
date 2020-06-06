@@ -13,8 +13,8 @@ export const HistoryButton: React.FC<HistoryButtonProps> = props => {
     <div className="HistoryButton">
       <Icon
         onClick={props.onHistoryToggle}
+        className="HistoryButton-icon"
         style={{
-          fontSize: "35px",
           color: props.showHistory ? "#1a1a1a" : ""
         }}
       >
