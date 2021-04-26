@@ -39,6 +39,16 @@
 .search-button {
   width: 88px;
   margin: auto 5px;
+  .MuiButton-contained{
+    border-radius: 15px;
+    box-shadow: none;
+  }
+
+  #search-btn-text{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-transform: none;
+  }
 
   #search-btn-icon {
     display: none;

@@ -51,6 +51,9 @@ const App: React.FC = () => {
   };
 
   const handleSubmit = () => {
+    if(searchHistory){
+      toggleHistory();
+    }
     if (search !== "") {
       setLoading(true);
       const url =
@@ -91,12 +94,15 @@ const App: React.FC = () => {
   };
 
   const toggleHistory = () => {
+    const historyContainer = document.getElementById('history-container');
     if (searchHistory.length > 0) {
       setShowHistory(!showHistory);
+        historyContainer?.classList.toggle('active');
     }
   };
 
   const handleSearchAgain = (query: string) => {
+    toggleHistory();
     setLoading(true);
     const url =
       "https://api.unsplash.com/search/photos?per_page=30&query=" +
@@ -122,6 +128,7 @@ const App: React.FC = () => {
       setLoading(false);
       setShowHistory(false);
       setCurrentQuery(query.toLocaleUpperCase());
+      
     });
   };
 

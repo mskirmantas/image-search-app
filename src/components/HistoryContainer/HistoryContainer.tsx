@@ -12,7 +12,7 @@ interface HistoryContainerProps {
 
 export const HistoryContainer: React.FC<HistoryContainerProps> = (props) => {
   return (
-    <div className="HistoryContainer">
+    <div id="history-container" className="HistoryContainer">
       {props.searchHistory.map((historyItem: string) => {
         return (
           <HistoryItem

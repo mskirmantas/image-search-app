@@ -3,9 +3,9 @@
 .HistoryContainer {
   position: fixed;
   z-index: 1;
-  top: 115px;
+  top: 100px;
   width: 100%;
-  max-height: calc(100vh - 115px);
+  max-height: calc(100vh - 100px);
   overflow-y: scroll;
   padding: 25px;
   display: flex;
@@ -14,4 +14,15 @@
   color: white;
   background-color: rgba(165, 165, 165, 0.85);
   border-bottom: 1.5px solid $color-dirty-white;
+  transform: translateY(-200%);
+  transition: all 0.7s linear;
+  opacity: 0;
+  visibility: hidden;
+  &.active{
+    transform: translateY(0%);
+    opacity: 1;
+    visibility: visible;
+  }
 }
+
+

@@ -25,13 +25,13 @@ export const Content: React.FC<ContentProps> = (props) => {
         backgroundImage: props.images.length !== 0 ? "none" : "",
       }}
     >
-      {props.showHistory ? (
+      {/* {props.showHistory ? ( */}
         <HistoryContainer
           searchHistory={props.searchHistory}
           onHistoryItemClick={props.onHistoryItemClick}
           onRemoveHistoryItem={props.onRemoveItemClick}
         />
-      ) : null}
+      {/* ) : null} */}
 
       {props.images.length === 0 ? (
         <>
